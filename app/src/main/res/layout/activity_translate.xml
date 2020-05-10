@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"/>
+
+    <ScrollView
+            android:id="@+id/svContent"
+            android:clipToPadding="false"
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/tvEnglishLabel"
+                    android:text="@string/phrase_english"
+                    android:layout_width="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/textOther"
+                    android:layout_height="wrap_content"/>
+
+            <EditText
+                    android:textCursorDrawable="@drawable/edit_text_cursor"
+                    android:background="@null"
+                    android:hint="@string/phrase_input_hint"
+                    android:inputType="textMultiLine"
+                    android:maxLines="12"
+                    android:id="@+id/etEnglish"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/textMain"
+                    android:layout_below="@+id/tvEnglishLabel"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/tvGenLabel"
+                    android:text="@string/phrase_english"
+                    android:layout_width="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_below="@+id/etEnglish"
+                    android:textColor="@color/textOther"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/tvGen"
+                    android:background="?selectableItemBackground"
+                    android:hint="@string/phrase_result_hint"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/textMain"
+                    android:layout_below="@+id/tvGenLabel"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <Button
+                    android:id="@+id/btnSave"
+                    android:layout_alignParentBottom="true"
+                    android:text="@string/save"
+                    android:layout_below="@+id/tvGen"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

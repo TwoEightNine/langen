@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:background="?selectableItemBackground"
+        android:layout_height="wrap_content">
+
+    <TextView
+            android:id="@+id/tvTranslation"
+            android:textColor="@color/textMain"
+            android:textSize="16sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            tools:text="sdj ado asdwdn asdjnads uei shdfv sdf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/tvPhrase"
+            android:layout_marginTop="6dp"
+            android:layout_below="@+id/tvTranslation"
+            android:textColor="@color/textOther"
+            android:textSize="15sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            tools:text="this is a sample phrase ahah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/tvDate"
+            android:layout_marginTop="4dp"
+            android:layout_below="@+id/tvPhrase"
+            android:textColor="@color/textOther"
+            android:textSize="14sp"
+            android:layout_alignParentEnd="true"
+            tools:text="16.05.2020 13:37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</RelativeLayout>
