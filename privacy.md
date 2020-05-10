@@ -1,4 +1,4 @@
-#### privacy policy of langen
+## privacy policy of langen
 
 
 ### goals
@@ -11,4 +11,4 @@ application does not access your storage, does not use your personal information
 all languages are generated randomly, any possible coincidence are accidental
 
 
-## langen, 2020
+#### langen, 2020
