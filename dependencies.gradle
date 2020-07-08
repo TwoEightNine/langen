@@ -1,0 +1,59 @@
+ext {
+    androidApp = [
+            versionCode  : 2,
+            versionName  : "0.1",
+            applicationId: "global.msnthrp.langen"
+    ]
+
+    androidVersions = [
+            minSdkVersion    : 23,
+            targetSdkVersion : 29,
+            compileSdkVersion: 29,
+            buildToolsVersion: '29.0.2'
+    ]
+
+    toolsVersions = [
+            kotlinVersion: "1.3.72",
+            javaVersion  : "1.8",
+
+            roomVersion  : "2.2.5"
+    ]
+
+    kotlin = [
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${toolsVersions.kotlinVersion}"
+    ]
+
+    androidUi = [
+            appCompat   : "androidx.appcompat:appcompat:1.1.0",
+            recyclerView: "androidx.recyclerview:recyclerview:1.1.0",
+            lifeCycle   : "androidx.lifecycle:lifecycle-extensions:2.2.0",
+            coreKtx     : "androidx.core:core-ktx:1.2.0",
+            material    : "com.google.android.material:material:1.1.0"
+    ]
+
+    androidTests = [
+            jUnit   : "junit:junit:4.12",
+            runner  : "androidx.test:runner:1.2.0",
+            espresso: "androidx.test.espresso:espresso-core:3.2.0"
+    ]
+
+    reactiveX = [
+            rxJava   : "io.reactivex.rxjava2:rxjava:2.2.9",
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:2.1.1",
+            rxBinding: "com.jakewharton.rxbinding:rxbinding:1.0.1"
+    ]
+
+    room = [
+            version : "2.2.5",
+
+            runtime : "androidx.room:room-runtime:${toolsVersions.roomVersion}",
+            rxJava  : "androidx.room:room-rxjava2:${toolsVersions.roomVersion}",
+            compiler: "androidx.room:room-compiler:${toolsVersions.roomVersion}"
+    ]
+
+    utils = [
+            gson: "com.google.code.gson:gson:2.8.5",
+            ads : "com.google.android.gms:play-services-ads:19.2.0"
+    ]
+
+}

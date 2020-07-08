@@ -1,0 +1,15 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply from: "$project.rootDir/dependencies.gradle"
+
+dependencies {
+    implementation project(':domain')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation kotlin.kotlin
+
+    implementation reactiveX.rxJava
+}
+
+sourceCompatibility = toolsVersions.javaVersion
+targetCompatibility = toolsVersions.javaVersion
