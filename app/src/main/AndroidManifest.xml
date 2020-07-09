@@ -19,18 +19,18 @@
                 android:name="com.google.android.gms.ads.APPLICATION_ID"
                 android:value="ca-app-pub-2406097672693248~6202057750"/>
 
-        <activity android:name=".main.MainActivity">
+        <activity android:name="global.msnthrp.langen.ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-                android:name=".create.CreateLanguageActivity"
+                android:name="global.msnthrp.langen.ui.create.CreateLanguageActivity"
                 android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".details.LanguageDetailsActivity"/>
-        <activity android:name=".phrase.TranslateActivity"/>
-        <activity android:name=".phrase.PhraseActivity"/>
+        <activity android:name="global.msnthrp.langen.ui.details.LanguageDetailsActivity"/>
+        <activity android:name="global.msnthrp.langen.ui.details.phrase.TranslateActivity"/>
+        <activity android:name="global.msnthrp.langen.ui.details.phrase.PhraseActivity"/>
 
     </application>
 </manifest>

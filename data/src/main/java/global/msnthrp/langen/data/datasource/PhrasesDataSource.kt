@@ -9,7 +9,7 @@ interface PhrasesDataSource {
 
     fun getAllPhrases(language: Language): Single<List<Phrase>>
 
-    fun addPhrase(phrase: Phrase): Single<Long>
+    fun addPhrase(phrase: Phrase): Completable
 
     fun deletePhrase(phrase: Phrase): Completable
 

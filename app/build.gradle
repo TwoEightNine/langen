@@ -21,10 +21,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility toolsVersions.javaVersion
+        targetCompatibility toolsVersions.javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = toolsVersions.javaVersion
+    }
 }
 
-sourceCompatibility = toolsVersions.javaVersion
-targetCompatibility = toolsVersions.javaVersion
 
 kapt {
     generateStubs = true
@@ -45,6 +50,7 @@ dependencies {
     implementation androidUi.lifeCycle
     implementation androidUi.coreKtx
     implementation androidUi.material
+    implementation androidUi.fragmentKtx
 
     testImplementation androidTests.jUnit
     androidTestImplementation androidTests.runner

@@ -10,7 +10,5 @@ interface LanguagesDataSource {
 
     fun deleteLanguage(language: Language): Completable
 
-    fun saveNewLanguage(language: Language): Single<Long>
-
-    fun updateLanguageName(language: Language, newName: String)
+    fun saveNewLanguage(language: Language): Completable
 }
