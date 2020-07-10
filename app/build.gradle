@@ -53,6 +53,7 @@ dependencies {
     implementation androidUi.fragmentKtx
 
     testImplementation androidTests.jUnit
+    testImplementation androidTests.arch
     androidTestImplementation androidTests.runner
     androidTestImplementation androidTests.espresso
 
