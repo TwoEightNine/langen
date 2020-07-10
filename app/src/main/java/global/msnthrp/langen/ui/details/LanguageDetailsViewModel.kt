@@ -7,10 +7,15 @@ import androidx.lifecycle.ViewModelProvider
 import global.msnthrp.langen.ui.base.BaseViewModel
 import global.msnthrp.langen.ui.details.model.PhrasePreview
 import global.msnthrp.langen.models.Language
+import global.msnthrp.langen.models.Phrase
+import global.msnthrp.langen.models.SAMPLE_TEXT
 import global.msnthrp.langen.platform.datasource.DbLanguageDataSource
 import global.msnthrp.langen.platform.datasource.DbPhraseDataSource
+import global.msnthrp.langen.platform.datasource.NothingPhraseDataSource
+import global.msnthrp.langen.ui.main.model.LanguagePreview
 import global.msnthrp.langen.usecases.LanguageDetailsUseCase
 import global.msnthrp.langen.usecases.TranslateToLanguageUseCase
+import io.reactivex.Observable
 
 class LanguageDetailsViewModel(language: Language) : BaseViewModel() {
 
@@ -39,9 +44,11 @@ class LanguageDetailsViewModel(language: Language) : BaseViewModel() {
     fun loadPhrases() {
         languageDetailsUseCase
             .getPhrases()
+            .flatMapObservable { list -> Observable.fromIterable(list) }
+            .flatMap { phrase -> phrase.toPhrasePreview() }
+            .toList()
             .subscr { phrases ->
-                phrasesLiveData.value =
-                    phrases.map { PhrasePreview(it, "sasmple") }
+                phrasesLiveData.value = phrases
             }
     }
 
@@ -51,8 +58,12 @@ class LanguageDetailsViewModel(language: Language) : BaseViewModel() {
             .subscr {
                 deletedLiveData.value = Unit
             }
-
     }
+
+    private fun Phrase.toPhrasePreview(): Observable<PhrasePreview> =
+        Observable.just(translateToLanguageUseCase)
+            .flatMap { it.translate(text).toObservable() }
+            .map { sample -> PhrasePreview(this, sample) }
 
     class LanguageDetailsViewModelFactory(private val language: Language) :
         ViewModelProvider.Factory {

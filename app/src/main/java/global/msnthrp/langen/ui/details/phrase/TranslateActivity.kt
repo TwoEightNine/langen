@@ -20,7 +20,9 @@ class TranslateActivity : BaseActivity() {
     private val language by lazy {
         intent?.extras?.getSerializable(ARG_LANGUAGE) as? Language
     }
-    private val viewModel by viewModels<TranslateViewModel>()
+    private val viewModel by viewModels<TranslateViewModel> {
+        TranslateViewModel.TranslateViewModelFactory(language ?: Language.EMPTY)
+    }
 
     override fun getLayoutId() = R.layout.activity_translate
 
@@ -31,6 +33,9 @@ class TranslateActivity : BaseActivity() {
             tvGenLabel.text = language.name
         }
         viewModel.saved.observe(this, Observer(::onSaved))
+        viewModel.translation.observe(this, Observer { translation ->
+            tvGen.text = translation
+        })
         btnSave.setOnClickListener {
             viewModel.savePhrase()
         }
