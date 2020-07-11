@@ -2,6 +2,7 @@ package global.msnthrp.langen.ui.create
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import global.msnthrp.langen.data.datasource.LanguagesDataSource
 import global.msnthrp.langen.ui.base.BaseViewModel
 import global.msnthrp.langen.platform.datasource.DbLanguageDataSource
 import global.msnthrp.langen.ui.utils.Prefs
@@ -9,7 +10,11 @@ import global.msnthrp.langen.usecases.CreateLanguageUseCase
 
 class CreateLanguageViewModel : BaseViewModel() {
 
-    private val createLanguageUseCase = CreateLanguageUseCase(DbLanguageDataSource())
+    private val languageDataSource: LanguagesDataSource = DbLanguageDataSource()
+
+    private val createLanguageUseCase by lazy {
+        CreateLanguageUseCase(languageDataSource)
+    }
 
     private val languageNameLiveData = MutableLiveData<String>()
     private val languageSampleLiveData = MutableLiveData<String>()

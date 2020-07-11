@@ -53,9 +53,12 @@ dependencies {
     implementation androidUi.fragmentKtx
 
     testImplementation androidTests.jUnit
-    testImplementation androidTests.arch
+    testImplementation androidTests.mockito
+    androidTestImplementation androidTests.truth
+    androidTestImplementation androidTests.arch
     androidTestImplementation androidTests.runner
     androidTestImplementation androidTests.espresso
+    androidTestImplementation androidTests.mockitoAndroid
 
     implementation reactiveX.rxJava
     implementation reactiveX.rxAndroid

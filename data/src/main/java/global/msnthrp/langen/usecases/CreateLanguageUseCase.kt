@@ -11,6 +11,7 @@ class CreateLanguageUseCase(
 ) {
 
     private lateinit var generatedLanguage: Language
+    private lateinit var generatedName: String
 
     fun createLanguage(
         longWords: Boolean,
@@ -26,12 +27,15 @@ class CreateLanguageUseCase(
     }
 
     fun getLanguageName(): Single<String> = Single.fromCallable {
-        LanguageCore.translateText(generatedLanguage, text = LANGUAGE)
+        generatedName = LanguageCore.translateText(generatedLanguage, text = LANGUAGE)
+        generatedName
     }
 
     fun getLanguageSample(): Single<String> = Single.fromCallable {
         LanguageCore.translateText(generatedLanguage)
     }
 
-    fun saveLanguage() = languagesDataSource.saveNewLanguage(generatedLanguage)
+    fun saveLanguage() = languagesDataSource.saveNewLanguage(
+        generatedLanguage.copy(name = generatedName)
+    )
 }

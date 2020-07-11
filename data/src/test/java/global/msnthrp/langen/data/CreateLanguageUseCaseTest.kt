@@ -1,5 +1,6 @@
 package global.msnthrp.langen.data
 
+import com.google.common.truth.Truth
 import global.msnthrp.langen.data.datasources.TestLanguagesDataSource
 import global.msnthrp.langen.models.MAXIMAL
 import global.msnthrp.langen.models.MINIMAL
@@ -22,18 +23,25 @@ class CreateLanguageUseCaseTest {
                 .createLanguage(longWords = true, alphabet = ALPHABET_AVG)
                 .blockingGet()
 
-        assert(createdLanguageWithLongWords.longWords)
-        assert(languagesDataSource.languages.size == languagesBefore)
-        assert(createdLanguageWithLongWords.alphabet == ALPHABET_AVG)
+
+        Truth.assertThat(createdLanguageWithLongWords.longWords)
+            .isTrue()
+        Truth.assertThat(languagesDataSource.languages)
+            .hasSize(languagesBefore)
+        Truth.assertThat(createdLanguageWithLongWords.alphabet)
+            .containsExactlyElementsIn(ALPHABET_AVG)
 
         val createdLanguageWithShortWords =
             createLanguageUseCase
                 .createLanguage(longWords = false, alphabet = ALPHABET_MAX)
                 .blockingGet()
 
-        assert(!createdLanguageWithShortWords.longWords)
-        assert(languagesDataSource.languages.size == languagesBefore)
-        assert(createdLanguageWithShortWords.alphabet == ALPHABET_MAX)
+        Truth.assertThat(createdLanguageWithShortWords.longWords)
+            .isFalse()
+        Truth.assertThat(languagesDataSource.languages)
+            .hasSize(languagesBefore)
+        Truth.assertThat(createdLanguageWithShortWords.alphabet)
+            .containsExactlyElementsIn(ALPHABET_MAX)
     }
 
     @Test
@@ -48,7 +56,8 @@ class CreateLanguageUseCaseTest {
                     .blockingGet()
 
                 for (letter in sample) {
-                    assert(letter in alphabet || letter !in ALPHABET_MAX)
+                    Truth.assertThat(letter in alphabet || letter !in ALPHABET_MAX)
+                        .isTrue()
                 }
             }
         }
@@ -63,15 +72,26 @@ class CreateLanguageUseCaseTest {
                 .createLanguage(longWords = true, alphabet = ALPHABET_AVG)
                 .blockingGet()
 
-        assert(createdLanguage !in languagesDataSource.languages)
-        assert(languagesDataSource.languages.size == languagesBefore)
+        Truth.assertThat(languagesDataSource.languages)
+            .doesNotContain(createdLanguage)
+        Truth.assertThat(languagesDataSource.languages)
+            .hasSize(languagesBefore)
+
+        val languageName =
+            createLanguageUseCase
+            .getLanguageName()
+            .blockingGet()
 
         createLanguageUseCase
             .saveLanguage()
             .blockingAwait()
 
-        assert(createdLanguage in languagesDataSource.languages)
-        assert(languagesDataSource.languages.size == languagesBefore + 1)
+        Truth.assertThat(languagesDataSource.languages)
+            .contains(createdLanguage.copy(name = languageName))
+        Truth.assertThat(languagesDataSource.languages)
+            .hasSize(languagesBefore + 1)
+        Truth.assertThat(languagesDataSource.languages.map { it.name })
+            .contains(languageName)
     }
 
     @Test

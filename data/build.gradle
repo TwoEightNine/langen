@@ -43,6 +43,7 @@ dependencies {
 
     testImplementation androidTests.jUnit
     testImplementation androidTests.arch
+    testImplementation androidTests.truth
 
     implementation reactiveX.rxJava
 

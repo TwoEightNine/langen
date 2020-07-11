@@ -1,5 +1,6 @@
 package global.msnthrp.langen.data
 
+import com.google.common.truth.Truth
 import global.msnthrp.langen.data.datasources.TestPhrasesDataSource
 import global.msnthrp.langen.models.SAMPLE_TEXT
 import global.msnthrp.langen.usecases.TranslateToLanguageUseCase
@@ -27,8 +28,10 @@ class TranslateToLanguageUseCaseTest {
             .translate(SHORT_TEXT)
             .blockingGet()
 
-        assert(translation1 == translation3)
-        assert(translation1 != translation2)
+        Truth.assertThat(translation1)
+            .isEqualTo(translation3)
+        Truth.assertThat(translation1)
+            .isNotEqualTo(translation2)
     }
 
     @Test
@@ -43,15 +46,11 @@ class TranslateToLanguageUseCaseTest {
             .savePhrase()
             .blockingAwait()
 
-        assert(phrasesDataSource.phrases.size == phrasesBefore + 1)
+        Truth.assertThat(phrasesDataSource.phrases)
+            .hasSize(phrasesBefore + 1)
 
-        var hasTranslation = false
-        for (phrase in phrasesDataSource.phrases) {
-            if (phrase.text == LONG_TEXT) {
-                hasTranslation = true
-            }
-        }
-        assert(hasTranslation)
+        Truth.assertThat(phrasesDataSource.phrases.map { it.text })
+            .contains(LONG_TEXT)
     }
 
     companion object {
