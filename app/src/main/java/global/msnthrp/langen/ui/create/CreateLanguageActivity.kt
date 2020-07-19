@@ -9,6 +9,7 @@ import global.msnthrp.langen.R
 import global.msnthrp.langen.ui.base.BaseActivity
 import global.msnthrp.langen.models.LettersComparator
 import global.msnthrp.langen.models.MAXIMAL
+import global.msnthrp.langen.ui.base.BaseViewModel
 import global.msnthrp.langen.ui.utils.Prefs
 import global.msnthrp.langen.ui.utils.hide
 import global.msnthrp.langen.ui.utils.setBottomInsetPadding
@@ -37,6 +38,8 @@ class CreateLanguageActivity : BaseActivity() {
 
         svContent.setBottomInsetPadding()
     }
+
+    override fun getDefaultViewModel() = viewModel
 
     private fun initViews() {
         alphabetView.alphabet = MAXIMAL.toList().sortedWith(LettersComparator())

@@ -48,12 +48,12 @@ class CreateLanguageViewModel : BaseViewModel() {
     private fun getLanguageInfo() {
         createLanguageUseCase
             .getLanguageName()
-            .subscr { name ->
+            .subscr(updateLoading = false) { name ->
                 languageNameLiveData.value = name
             }
         createLanguageUseCase
             .getLanguageSample()
-            .subscr { sample ->
+            .subscr(updateLoading = false) { sample ->
                 languageSampleLiveData.value = sample
             }
     }

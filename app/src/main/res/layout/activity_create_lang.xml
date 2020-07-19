@@ -83,7 +83,7 @@
                     android:layout_marginTop="8dp"
                     android:textColor="@color/textMain"
                     android:layout_below="@+id/tvSampleLabel"
-                    android:textSize="18sp"
+                    android:textSize="17sp"
                     android:layout_width="match_parent"
                     tools:text="jfsi  shds aoidho ado hdohev"
                     android:layout_height="wrap_content"/>

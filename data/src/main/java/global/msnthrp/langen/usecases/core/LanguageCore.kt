@@ -59,6 +59,32 @@ object LanguageCore {
         return rules
     }
 
+    fun calculateUniformity(alphabet: List<Char>, sample: String, lowShare: Int = 4): Pair<Double, Int> {
+        val values = calculateQuantities(alphabet, sample)
+
+        val lowest = values.subList(0, values.size / lowShare)
+        val avgValues = values.sum().toDouble() / values.size
+        val avgLowest = lowest.sum().toDouble() / lowest.size
+        val uniformity = avgLowest / avgValues
+
+        val unusage = values.filter { it == 0 }.count()
+        return Pair(uniformity, unusage)
+    }
+
+    private fun calculateQuantities(alphabet: List<Char>, sample: String): List<Int> {
+        val quantity = hashMapOf<Char, Int>()
+        for (letter in alphabet) {
+            quantity[letter] = 0
+        }
+        for (letter in sample) {
+            if (letter in quantity) {
+                val qu = quantity[letter] ?: 0
+                quantity[letter] = qu + 1
+            }
+        }
+        return quantity.values.sorted()
+    }
+
     private fun replaceCommonly(text: String, long: Boolean) = applyReplacementMap(
         applyReplacementMap(text, COMMON_REPLACES),
         if (long) {

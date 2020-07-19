@@ -38,13 +38,17 @@ open class BaseViewModel : ViewModel() {
         compositeDisposable.add(this)
     }
 
-    protected fun <T> Single<T>.subscr(consumer: (T) -> Unit) {
+    protected fun <T> Single<T>.subscr(updateLoading: Boolean = true, consumer: (T) -> Unit) {
         androidSchedulers()
             .doOnSubscribe {
-                isLoading = true
+                if (updateLoading) {
+                    isLoading = true
+                }
             }
             .doOnSuccess {
-                isLoading = false
+                if (updateLoading) {
+                    isLoading = false
+                }
             }
             .doOnError { throwable ->
                 setError(interceptError(throwable.message ?: "null throwable"))
