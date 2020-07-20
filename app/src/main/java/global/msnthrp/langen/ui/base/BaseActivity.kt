@@ -34,9 +34,9 @@ abstract class BaseActivity : AppCompatActivity() {
         setContentView(getLayoutId())
 
         window.decorView.systemUiVisibility =
+            window.decorView.systemUiVisibility or
             View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
-                    View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
         window.statusBarColor = getStatBarColor()
 
         if (Build.VERSION.SDK_INT >= 26) {

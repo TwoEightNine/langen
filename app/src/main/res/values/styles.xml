@@ -10,10 +10,13 @@
         <item name="android:windowBackground">@drawable/splash</item>
         <item name="android:statusBarColor">#0000</item>
         <item name="android:navigationBarColor">#0000</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">@bool/is_light_status_bar</item>
     </style>
 
     <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="android:textColor">@color/textMain</item>
+        <item name="android:textColorPrimary">@color/textMain</item>
+        <item name="android:background">@color/background</item>
         <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
         <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
     </style>

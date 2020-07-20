@@ -9,7 +9,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
-        app:cardBackgroundColor="@android:color/white"
+        app:cardBackgroundColor="@color/background"
         app:cardCornerRadius="10dp"
         app:cardElevation="2dp"
         android:layout_height="@dimen/card_language_height">
@@ -20,7 +20,7 @@
 
         <TextView
                 android:id="@+id/tvSampleText"
-                android:textColor="#e4e4e4"
+                android:textColor="@color/textLightest"
                 tools:text="as you see this is the sample text"
                 android:textSize="32sp"
                 android:textStyle="bold"

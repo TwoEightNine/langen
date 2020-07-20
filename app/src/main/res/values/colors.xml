@@ -15,6 +15,7 @@
     <color name="textMain">#333</color>
     <color name="textOther">#666</color>
     <color name="textDisabled">#bbb</color>
+    <color name="textLightest">#e4e4e4</color>
 
     <color name="switchThumb">#aaa</color>
     <color name="switchTrack">#ccc</color>

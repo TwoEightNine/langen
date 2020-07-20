@@ -21,7 +21,7 @@ class CreateLanguageUseCase(
         alphabet: List<Char>
     ): Single<Language> = Single.fromCallable {
         var maxUniformity = 0.0
-        for (i in 1..100) {
+        for (i in 1..TRIES) {
             val generatedLanguage = Language(
                 longWords = longWords,
                 replacementRules = LanguageCore.generateReplacementRules(longWords),
@@ -65,5 +65,9 @@ class CreateLanguageUseCase(
         } else {
             mod
         }
+    }
+
+    companion object {
+        const val TRIES = 50
     }
 }

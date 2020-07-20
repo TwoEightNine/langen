@@ -2,6 +2,7 @@ package global.msnthrp.langen.ui.main
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.ads.MobileAds
@@ -13,6 +14,7 @@ import global.msnthrp.langen.ui.main.model.LanguagePreview
 import global.msnthrp.langen.ui.utils.setBottomInsetMargin
 import global.msnthrp.langen.ui.utils.setBottomInsetPadding
 import global.msnthrp.langen.ui.utils.setVisible
+import global.msnthrp.langen.ui.utils.showAlert
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
