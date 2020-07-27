@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:clipToPadding="false"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        app:cardBackgroundColor="@color/background"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="2dp"
+        android:layout_height="@dimen/card_language_height">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/tvSampleText"
+                android:textColor="@color/textLightest"
+                tools:text="as you see this is the sample text"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:layout_alignParentEnd="true"
+                android:layout_width="250dp"
+                android:layout_marginEnd="-50dp"
+                android:layout_height="match_parent"/>
+
+        <View
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/shape_gradient_right"
+                android:layout_alignStart="@+id/tvSampleText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        <View
+                android:id="@+id/vClick"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        <TextView
+                android:id="@+id/tvName"
+                android:textSize="24sp"
+                tools:text="my language"
+                android:textStyle="bold"
+                android:layout_margin="8dp"
+                android:textColor="@color/textMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/tvCreated"
+                android:textSize="13sp"
+                android:layout_below="@+id/tvName"
+                tools:text="13 oct 2013 13:37"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/textOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">langenc</string>
+
+    <string name="button_ok">ok</string>
+    <string name="button_cancel">cancel</string>
+    <string name="button_yes">yes</string>
+    <string name="button_no">no</string>
+
+    <string name="alphabet">alphabet</string>
+    <string name="text_sample">text sample</string>
+
+    <string name="create_language_title">generate new language</string>
+    <string name="language_name">name of the language</string>
+    <string name="long_words">longer words</string>
+    <string name="create_again">create again</string>
+    <string name="save">save</string>
+    <string name="language_saved">your new language was saved successfully!</string>
+
+    <string name="translate">translate</string>
+    <string name="saved_phrases">saved phrases</string>
+    <string name="created">created %s</string>
+    <string name="dictionary">dictionary</string>
+    <string name="delete_language">delete language</string>
+    <string name="want_to_delete_language">do you really want to delete this language?</string>
+
+    <string name="lessons">%s. lessons</string>
+
+    <string name="exercise">go to exercises</string>
+    <string name="theory_title">theory</string>
+    <string name="theory_words">new words from this lesson</string>
+
+    <string name="phrase_translate_title">translate to %s</string>
+    <string name="phrase_title">phrase in %s</string>
+    <string name="phrase_english">english</string>
+    <string name="phrase_input_hint">enter your text here</string>
+    <string name="phrase_result_hint">here will be the translation</string>
+
+    <string name="dialog_copy">copy</string>
+    <string name="dialog_share">share</string>
+
+    <string name="hint_create_your_first_language">you don\'t have any languages here. start creating by pressing \'plus\' button</string>
+    <string name="hint_alphabet">choose letters you want to see in your language. note that some letter are necessary</string>
+    <string name="hint_try_again">if you don\'t like the language, you are always able to create a new one again</string>
+    <string name="hint_translate">press \'translate\' to start translating phrases to this language</string>
+</resources>

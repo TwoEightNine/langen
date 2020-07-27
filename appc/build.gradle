@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply from: "$project.rootDir/dependencies.gradle"
+
+android {
+    compileSdkVersion androidVersions.compileSdkVersion
+    buildToolsVersion androidVersions.buildToolsVersion
+    defaultConfig {
+        applicationId androidApp.applicationIdC
+        minSdkVersion androidVersions.minSdkVersion
+        targetSdkVersion androidVersions.targetSdkVersion
+        versionCode androidApp.versionCode
+        versionName androidApp.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility toolsVersions.javaVersion
+        targetCompatibility toolsVersions.javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = toolsVersions.javaVersion
+    }
+}
+
+
+kapt {
+    generateStubs = true
+}
+
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':data')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation kotlin.kotlin
+
+    implementation androidUi.appCompat
+    implementation androidUi.recyclerView
+    implementation androidUi.lifeCycle
+    implementation androidUi.coreKtx
+    implementation androidUi.material
+    implementation androidUi.fragmentKtx
+    implementation androidUi.navFragment
+    implementation androidUi.navUi
+    implementation androidUi.navDynamicFeature
+
+    testImplementation androidTests.jUnit
+    testImplementation androidTests.mockito
+    androidTestImplementation androidTests.truth
+    androidTestImplementation androidTests.arch
+    androidTestImplementation androidTests.runner
+    androidTestImplementation androidTests.espresso
+    androidTestImplementation androidTests.mockitoAndroid
+    androidTestImplementation androidTests.navComponent
+
+    implementation reactiveX.rxJava
+    implementation reactiveX.rxAndroid
+    implementation reactiveX.rxBinding
+
+    implementation room.runtime
+    implementation room.rxJava
+    kapt room.compiler
+
+    implementation utils.gson
+}

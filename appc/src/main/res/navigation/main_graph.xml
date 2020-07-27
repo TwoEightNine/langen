@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main_graph"
+        app:startDestination="@id/languagesListFragment">
+
+    <fragment
+            android:id="@+id/languagesListFragment"
+            android:name="global.msnthrp.langenc.ui.langlist.LanguagesListFragment"
+            android:label="LanguagesListFragment"
+            tools:layout="@layout/fragment_language_list">
+        <action
+                android:id="@+id/action_create_language"
+                app:destination="@id/createLanguageFragment" />
+        <action
+                android:id="@+id/action_language_details"
+                app:destination="@id/languageDetailsFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/createLanguageFragment"
+            android:name="global.msnthrp.langenc.ui.create.CreateLanguageFragment"
+            android:label="CreateLanguageFragment"
+            tools:layout="@layout/fragment_create_lang" />
+    <fragment
+            android:id="@+id/languageDetailsFragment"
+            android:name="global.msnthrp.langenc.ui.details.LanguageDetailsFragment"
+            android:label="LanguageDetailsFragment"
+            tools:layout="@layout/fragment_language_details">
+        <argument
+                android:name="language"
+                android:defaultValue="@null"
+                app:argType="global.msnthrp.langen.models.Language"
+                app:nullable="true" />
+        <action
+                android:id="@+id/action_translate"
+                app:destination="@id/translateFragment" />
+        <action
+                android:id="@+id/action_phrase_preview"
+                app:destination="@id/phraseFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/translateFragment"
+            android:name="global.msnthrp.langenc.ui.details.phrase.TranslateFragment"
+            android:label="TranslateFragment"
+            tools:layout="@layout/fragment_translate">
+        <argument
+                android:name="language"
+                android:defaultValue="@null"
+                app:argType="global.msnthrp.langen.models.Language"
+                app:nullable="true" />
+    </fragment>
+    <fragment
+            android:id="@+id/phraseFragment"
+            android:name="global.msnthrp.langenc.ui.details.phrase.PhraseFragment"
+            android:label="PhraseFragment"
+            tools:layout="@layout/fragment_phrase">
+        <argument
+                android:name="phrasePreview"
+                android:defaultValue="@null"
+                app:argType="global.msnthrp.langenc.ui.details.model.PhrasePreview"
+                app:nullable="true" />
+    </fragment>
+</navigation>

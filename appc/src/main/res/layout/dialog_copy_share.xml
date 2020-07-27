@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:id="@+id/rlCopy"
+            android:background="?selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:id="@+id/ivCopy"
+                android:src="@drawable/ic_content_copy"
+                android:layout_margin="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:text="@string/dialog_copy"
+                android:textColor="@color/textMain"
+                android:textSize="18sp"
+                android:layout_toEndOf="@+id/ivCopy"
+                android:layout_alignTop="@+id/ivCopy"
+                android:layout_alignBottom="@+id/ivCopy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/rlShare"
+            android:background="?selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:id="@+id/ivShare"
+                android:src="@drawable/ic_share"
+                android:layout_margin="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:text="@string/dialog_share"
+                android:textColor="@color/textMain"
+                android:textSize="18sp"
+                android:layout_toEndOf="@+id/ivShare"
+                android:layout_alignTop="@+id/ivShare"
+                android:layout_alignBottom="@+id/ivShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

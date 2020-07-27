@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:background="@color/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"/>
+
+    <ScrollView
+            android:id="@+id/svContent"
+            android:clipToPadding="false"
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/tvEnglishLabel"
+                    android:text="@string/phrase_english"
+                    android:layout_width="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/textOther"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:background="@null"
+                    android:hint="@string/phrase_input_hint"
+                    android:id="@+id/tvEnglish"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/textMain"
+                    android:layout_below="@+id/tvEnglishLabel"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/tvGenLabel"
+                    android:text="@string/phrase_english"
+                    android:layout_width="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_below="@+id/tvEnglish"
+                    android:textColor="@color/textOther"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/tvGen"
+                    android:background="?selectableItemBackground"
+                    android:hint="@string/phrase_result_hint"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/textMain"
+                    android:layout_below="@+id/tvGenLabel"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/tvCreated"
+                    android:text="@string/created"
+                    android:layout_width="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_below="@+id/tvGen"
+                    android:textColor="@color/textOther"
+                    android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

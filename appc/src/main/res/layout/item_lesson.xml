@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:clipToPadding="false"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="2dp"
+        android:layout_height="@dimen/card_language_height">
+
+    <RelativeLayout
+            android:background="?selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/tvName"
+                android:textSize="20sp"
+                tools:text="my language"
+                android:textStyle="bold"
+                android:layout_margin="8dp"
+                android:textColor="@color/textMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/tvInfo"
+                android:textSize="13sp"
+                android:layout_below="@+id/tvName"
+                tools:text="30 exercises, 45 words"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/textOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
