@@ -36,9 +36,9 @@ class CreateLanguageViewModel : BaseViewModel() {
             .subscr { getLanguageInfo() }
     }
 
-    fun saveCurrentLanguage() {
+    fun saveCurrentLanguage(name: String) {
         createLanguageUseCase
-            .saveLanguage()
+            .saveLanguage(name)
             .subscr {
                 Prefs.languageGenerated++
                 savedLiveData.value = Unit

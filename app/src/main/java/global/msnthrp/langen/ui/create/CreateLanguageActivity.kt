@@ -29,7 +29,7 @@ class CreateLanguageActivity : BaseActivity() {
 
         viewModel.saved.observe(this, Observer(::finishWithThisLanguage))
         viewModel.languageName.observe(this, Observer { name ->
-            tvName.text = name
+            etName.setText(name)
         })
         viewModel.languageSample.observe(this, Observer { sample ->
             tvSample.text = sample
@@ -59,7 +59,7 @@ class CreateLanguageActivity : BaseActivity() {
         }
         swLongWords.setOnCheckedChangeListener { _, _ -> generateNewLanguage() }
         btnCreateAgain.setOnClickListener { generateNewLanguage() }
-        btnSave.setOnClickListener { viewModel.saveCurrentLanguage() }
+        btnSave.setOnClickListener { viewModel.saveCurrentLanguage(etName.text.toString()) }
     }
 
     private fun generateNewLanguage() {

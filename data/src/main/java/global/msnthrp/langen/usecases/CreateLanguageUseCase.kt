@@ -1,13 +1,15 @@
 package global.msnthrp.langen.usecases
 
-import android.util.Log
 import global.msnthrp.langen.data.datasource.LanguagesDataSource
 import global.msnthrp.langen.models.LANGUAGE_SYNONYMS
 import global.msnthrp.langen.models.LARGE_TEXT
 import global.msnthrp.langen.models.Language
-import global.msnthrp.langen.models.SAMPLE_TEXT
 import global.msnthrp.langen.usecases.core.LanguageCore
 import io.reactivex.Single
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class CreateLanguageUseCase(
     private val languagesDataSource: LanguagesDataSource
@@ -51,8 +53,8 @@ class CreateLanguageUseCase(
         LanguageCore.translateText(generatedLanguage)
     }
 
-    fun saveLanguage() = languagesDataSource.saveNewLanguage(
-        generatedLanguage.copy(name = generatedName)
+    fun saveLanguage(name: String) = languagesDataSource.saveNewLanguage(
+        generatedLanguage.copy(name = name)
     )
 
     private fun getLanguageSynonym(languageHash: Int) =
