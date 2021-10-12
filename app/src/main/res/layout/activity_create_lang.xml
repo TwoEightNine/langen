@@ -53,27 +53,30 @@
                     android:id="@+id/tvNameLabel"
                     android:layout_below="@+id/swLongWords"
                     android:layout_width="wrap_content"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:layout_marginTop="16dp"
                     android:textColor="@color/textOther"
                     android:layout_height="wrap_content"/>
 
-            <TextView
-                    android:id="@+id/tvName"
+            <EditText
+                    android:textCursorDrawable="@drawable/edit_text_cursor"
+                    android:background="@null"
+                    android:maxLines="11"
+                    android:id="@+id/etName"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/textMain"
+                    android:textColorHint="@color/textDisabled"
                     android:layout_below="@+id/tvNameLabel"
                     android:textSize="18sp"
                     android:layout_width="match_parent"
-                    tools:text="jfsihev"
                     android:layout_height="wrap_content"/>
 
             <TextView
                     android:id="@+id/tvSampleLabel"
                     android:text="@string/text_sample"
-                    android:layout_below="@+id/tvName"
+                    android:layout_below="@+id/etName"
                     android:layout_width="wrap_content"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:layout_marginTop="16dp"
                     android:textColor="@color/textOther"
                     android:layout_height="wrap_content"/>

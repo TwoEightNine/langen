@@ -23,7 +23,7 @@
                     android:id="@+id/tvEnglishLabel"
                     android:text="@string/phrase_english"
                     android:layout_width="wrap_content"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:textColor="@color/textOther"
                     android:layout_height="wrap_content"/>
 
@@ -46,7 +46,7 @@
                     android:id="@+id/tvGenLabel"
                     android:text="@string/phrase_english"
                     android:layout_width="wrap_content"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:layout_marginTop="16dp"
                     android:layout_below="@+id/etEnglish"
                     android:textColor="@color/textOther"
@@ -68,6 +68,7 @@
                     android:id="@+id/btnSave"
                     android:layout_alignParentBottom="true"
                     android:text="@string/save"
+                    android:enabled="false"
                     android:layout_below="@+id/tvGen"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="24dp"
