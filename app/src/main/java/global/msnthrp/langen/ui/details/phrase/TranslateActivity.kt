@@ -36,6 +36,7 @@ class TranslateActivity : BaseActivity() {
         viewModel.translation.observe(this, Observer { translation ->
             tvGen.text = translation
         })
+        viewModel.saveButtonEnabled.observe(this, Observer { isEnabled -> btnSave.isEnabled = isEnabled })
         btnSave.setOnClickListener {
             viewModel.savePhrase()
         }

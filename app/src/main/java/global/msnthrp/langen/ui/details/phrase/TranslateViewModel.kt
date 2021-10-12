@@ -16,10 +16,14 @@ class TranslateViewModel(language: Language) : BaseViewModel() {
         TranslateToLanguageUseCase(language, DbPhraseDataSource())
 
     private val translationLiveData = MutableLiveData<String>()
+    private val saveButtonEnabledLiveData = MutableLiveData<Boolean>()
     private val savedLiveData = MutableLiveData<Unit>()
 
     val translation: LiveData<String>
         get() = translationLiveData
+
+    val saveButtonEnabled: LiveData<Boolean>
+        get() = saveButtonEnabledLiveData
 
     val saved: LiveData<Unit>
         get() = savedLiveData
@@ -29,6 +33,7 @@ class TranslateViewModel(language: Language) : BaseViewModel() {
             .translate(input)
             .subscr { translation ->
                 translationLiveData.value = translation
+                saveButtonEnabledLiveData.value = input.isNotBlank()
             }
     }
 
