@@ -24,6 +24,7 @@ abstract class BaseActivity : AppCompatActivity() {
     private var loaderDialog: LoaderDialog? = null
 
     private lateinit var mInterstitialAd: InterstitialAd
+    private var adFailed = false
 
     @LayoutRes
     abstract fun getLayoutId(): Int
@@ -68,7 +69,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         mInterstitialAd.adListener = object: AdListener() {
             override fun onAdFailedToLoad(errorCode: Int) {
-                finish()
+                adFailed = true
             }
 
             override fun onAdClicked() {
@@ -76,7 +77,6 @@ abstract class BaseActivity : AppCompatActivity() {
             }
 
             override fun onAdLeftApplication() {
-                finish()
             }
 
             override fun onAdClosed() {
@@ -129,18 +129,23 @@ abstract class BaseActivity : AppCompatActivity() {
     protected open fun getStatBarColor() = ContextCompat.getColor(this, R.color.statusBar)
 
     protected fun finishWithAd() {
-        if (mInterstitialAd.isLoaded) {
-            mInterstitialAd.show()
+        when {
+            mInterstitialAd.isLoaded -> mInterstitialAd.show()
+            adFailed -> finish()
         }
     }
 
     private fun showLoader() {
-        loaderDialog = LoaderDialog(this)
-        loaderDialog?.show()
+        if (!isFinishing) {
+            loaderDialog = LoaderDialog(this)
+            loaderDialog?.show()
+        }
     }
 
     private fun hideLoader() {
-        loaderDialog?.dismiss()
-        loaderDialog = null
+        if (loaderDialog?.isShowing == true) {
+            loaderDialog?.dismiss()
+            loaderDialog = null
+        }
     }
 }
